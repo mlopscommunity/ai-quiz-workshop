@@ -2,7 +2,6 @@ sentence-transformers~=3.2.0
 pandas~=2.2.3
 mistralai~=1.1.0
 watchdog~=5.0.3
-PyPDF2~=3.0.1
 streamlit~= 1.39.0
 python-dotenv
 ipykernel
