@@ -35,12 +35,12 @@ class LargeLanguageModel(object):
                 return response_text
             except Exception as e:
                 
-                logging.error(f"Error happened while calling the model: {e}")
+                logging.debug(f"Error happened while calling the model: {e}")
                 if "Status 429" in str(e) or "Rate limit exceeded" in str(e):
                     time_to_wait = 2 ** attempt
-                    logging.warning(f"Rate limit error: {e}" + "Waiting {time_to_wait} seconds before retrying")
+                    logging.debug(f"Rate limit error: {e}" + "Waiting {time_to_wait} seconds before retrying")
                     time.sleep(time_to_wait)
                 else:
-                    logging.warning(f"Api key: {self._api_key}")
+                    print(f"Api key: {self._api_key}")
                     raise e
         raise Exception("Rate limit exceeded after retries")
